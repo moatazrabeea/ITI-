@@ -1,3 +1,4 @@
+<!--------           some new--------->
 @extends("layouts.app_stuff")
 @section("title")
     book-view-show
@@ -47,13 +48,6 @@
                 </div>
             </div>
             <div class="book-rate">
-                {{--<form action="/rate/add"method="post">
-                    <input type="range"name="evaluation"id="evaluation"value=""min="0"max="5"oninput="outputEvaluation.value=evaluation.value"id="evaluation">
-                    <output name="outputEvaluation" id="outputEvaluation"></output>
-                    <input type="hidden"name="book_id"value="{{$book->id}}">
-                    <input type="hidden"name="_token"value="{{csrf_token()}}">
-                    <input type="submit"name="done"value="done"class="btn btn-primary">
-                </form>--}}
                 @if($rates->count() >0)
                     @php
                         $evaluation=0;
@@ -65,9 +59,6 @@
                             $count++;
                         @endphp
                     @endforeach
-               {{--     @for($i=0;$i<$evaluation/$count;$i++)
-                        <img src="{{asset("images/star12.png")}}"class="star-image"id="first-star" alt="">
-                        @endfor--}}
                         <span class="badge text-white"><img src="{{asset("images/star12.png")}}"class="star-image"id="first-star" alt="">{{$evaluation/$count}}</span>
                     @else
                     <img src="{{asset("images/Star.png")}}"class="star-image"id="first-star" alt="">
@@ -77,19 +68,6 @@
                     <img src="{{asset("images/Star.png")}}"class="star-image"id="fifth-star" alt="">
                 @endif
             </div>
-            {{--<div class="star-block">
-                <img src="{{asset("images/Star.png")}}"class="star-image"id="first-star" alt="">
-                <img src="{{asset("images/Star.png")}}"class="star-image"id="second-star" alt="">
-                <img src="{{asset("images/Star.png")}}"class="star-image"id="third-star" alt="">
-                <img src="{{asset("images/Star.png")}}"class="star-image"id="fourth-star" alt="">
-                <img src="{{asset("images/Star.png")}}"class="star-image"id="fifth-star" alt="">
-                <form action="/rate/add"method="post">
-                    <input type="hidden"name="evaluation"id="evaluation"value=""min="0"max="5"id="evaluation">
-                    <input type="hidden"name="book_id"value="{{$book->id}}">
-                    <input type="hidden"name="_token"value="{{csrf_token()}}">
-                    <input type="submit"name="done"value="done"class="btn btn-dark">
-                </form>
-            </div>--}}
 {{----}}
         <div class="book-rate-rr">
             <form action="/rate/add"method="post">
@@ -100,30 +78,6 @@
                 <input type="submit"name="done"value="done"class="btn btn-primary">
             </form>
         </div>
-
-
-{{------}}
-            {{--<div class="book-reader">
-                <span class="alert alert-success"id="readerAddBook">add book</span>
-                <form action=""method="post">
-                    <input type="text"name="title"value=""placeholder="title"class="form-control"id="title">
-                    <input type="text"name="author_name"value=""placeholder="author name"class="form-control"id="author_name">
-                    <textarea name="description" id="description" class="form-text" placeholder="description..........">
-
-                    </textarea>
-                    <div class="form-group">
-                        <label for="cover">cover:</label>
-                        <input type="file"name="cover"class="form-control-file"id="cover">
-                    </div>
-                    <div class="form-group">
-                        <label for="cover">book:</label>
-                        <input type="file"name="book_link"class="form-control-file"id="book_link">
-                    </div>
-
-                    <input type="text"name="isbn"value=""class="form-control"id="isbn"placeholder="write isbn number">
-                    <input type="submit"name="upload_book"value="upload"id="upload_book"class="btn btn-primary">
-                </form>
-            </div>--}}
             <div class="book-reader-comments">
                 <div class="book-comment">
                     <form action="/book/comment/add"method="post" class="comment-form">
