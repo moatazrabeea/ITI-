@@ -47,10 +47,12 @@
                             <li class="list-inline-item"><a href="/book/add"class="btn btn-light">add book</a></li>
                     @elseif(Auth::user()->job_type=='reader')
                         <li class="list-inline-item"><a href="/reader"class="btn btn-light">reader</a></li>
+                        <li class="list-inline-item"><a href="/reader/profile"class="btn btn-light">profile</a></li>
                     @elseif(Auth::user()->job_type=='admin')
                             <li class="list-inline-item"><a href="/category"class="btn btn-light">categories</a></li>
                             <li class="list-inline-item"><a href="/category/add"class="btn btn-light">add category</a></li>
                             <li class="list-inline-item"><a href="/admin/book"class="btn btn-light">show books</a></li>
+                            <li class="list-inline-item"><a href="/admin/reader_book"class="btn btn-light">reader books</a></li>
                             <!---<li class="list-inline-item"><a href="/book"class="btn btn-light">books</a></li>
                             <li class="list-inline-item"><a href="/book/add"class="btn btn-light">add book</a></li>---->
                     @endif

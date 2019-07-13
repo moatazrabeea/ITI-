@@ -139,6 +139,46 @@
             <div class="books-elements-head-title">
                 <h4 class="head">All Our Books</h4>
             </div>
+            <!------------>
+            <div class="book-reader">
+                @if($errors->any()>0)
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            <span>{{$error}}</span>
+                        </div>
+                    @endforeach
+                @else
+                @endif
+                <span class="alert alert-success"id="readerAddBook">add book</span>
+
+                <form action="/book/add"method="post"enctype="multipart/form-data">
+                    <input type="text"name="title"value=""placeholder="title"class="form-control"id="title">
+                    <input type="text"name="author_name"value=""placeholder="author name"class="form-control"id="author_name">
+                    <textarea name="description" id="description" class="form-text" placeholder="description..........">
+
+                    </textarea>
+                    <div class="form-group">
+                        <label for="cover">cover:</label>
+                        <input type="file" name="cover" class="form-control-file"id="cover">
+                    </div>
+                    <div class="form-group">
+                        <label for="book_link">book:</label>
+                        <input type="file" name="book_link" class="form-control-file"id="book_link">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">category</label>
+                        <select name="category_id" id="category_id">
+                            <option value="1">fiction</option>
+                            <option value="3">advinture</option>
+                        </select>
+                    </div>
+                    <input type="text"name="isbn"value=""class="form-control"id="isbn"placeholder="write isbn number">
+                    <input type="hidden"name="_token"value="{{csrf_token()}}">
+                    <input type="hidden"name="publisher_id"value="2">
+                    <input type="submit"name="upload_book"value="upload"id="upload_book"class="btn btn-primary">
+                </form>
+            </div>
+            <!--------->
             @if($books->count() > 0)
                 @foreach($books as $book)
                     @if($book->status==1)

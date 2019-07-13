@@ -27,25 +27,37 @@ Route::post('/category/add','CategoryController@store')->middleware('checkAdmin'
 Route::get('/category/edit/{id}','CategoryController@edit')->middleware('checkAdmin');
 Route::post('/category/edit/{id}','CategoryController@update')->middleware('checkAdmin');
 
-Route::get('/book','BookController@index')->middleware('checkPublisher');
+Route::get('/book','BookController@index');
 Route::get('/book/add','BookController@create')->middleware('checkPublisher');
-Route::post('/book/add','BookController@store')->middleware('checkPublisher');
-Route::get('/book/edit/{id}','BookController@edit')->middleware('checkPublisher');
+Route::post('/book/add','BookController@store');
+Route::get('/book/edit/{id}','BookController@edit');
 Route::post('/book/edit/{id}','BookController@update')->middleware('checkPublisher');
 Route::get('/book/show/{id}','BookController@show');
 Route::get('/book/delete/{id}','BookController@destroy')->middleware('checkPublisher');
 Route::get('/book/{id}/download','BookController@downloadBook')->name("book.download");
 Route::get('/book/{id}/review','BookController@reviewBook')->name("book.review");
 
+Route::post('/book/comment/add','BookCommentController@store');
+Route::post('/book/comment/edit','BookCommentController@update');
+Route::get('/book/comment/delete/{id}','BookCommentController@destroy');
+
 
 Route::get('/admin/book','AdminController@showBooks')->middleware('checkAdmin');
+//Route::get('/admin/reader_book','AdminController@showReaderBooks')->middleware('checkAdmin');
 Route::post('/admin/book','AdminController@approvedBooks')->middleware('checkAdmin');
+//Route::post('/admin/reader_book','AdminController@approvedReaderBooks')->middleware('checkAdmin');
 
 
 Route::get("/publisher",'PublisherController@index');
 Route::get("/publisher/show/{id}",'PublisherController@index');
 
 Route::get('/reader','ReaderController@index');
+Route::get('/reader/profile','ReaderController@profile');
+//Route::post('/reader/book/add','BookReaderController@store');
+//Route::get('/reader/profile','BookReaderController@index');
+//Route::get('/reader/book/{id}/download','BookReaderController@downloadBook')->name("bookReader.download");
+//Route::get('/reader/book/{id}/review','BookReaderController@reviewBook')->name("bookReader.review");
+
 
 //Route::get('/post','PostController@index');
 Route::post('/post/add','PostController@store');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     protected $table='book';
-    protected $fillable=['title','description','cover','book_link','publisher_id','category_id','status'];
+    protected $fillable=['title','description','cover','book_link','publisher_id','category_id','status','author_name','isbn'];
 
     public function publisher(){
         return $this->hasOne('App\User','id','publisher_id');

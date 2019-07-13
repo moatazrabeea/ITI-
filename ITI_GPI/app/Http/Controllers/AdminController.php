@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BookReader;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -54,6 +55,10 @@ class AdminController extends Controller
         $books=Book::all();
         return view("Admin.book")->with("books",$books);
     }
+    public function showReaderBooks(){
+        $books=BookReader::all();
+        return view("Admin.reader_book")->with("books",$books);
+    }
     public function approvedBooks(Request $request){
         $id=$request->input("book_id");
         $status=$request->input("status");
@@ -61,6 +66,15 @@ class AdminController extends Controller
         $book->id=$id;
         $book->status=$status;
         $book->save();
-        return redirect('admin/book');
+        return redirect('/admin/book');
+    }
+    public function approvedReaderBooks(Request $request){
+        $id=$request->input("book_id");
+        $status=$request->input("status");
+        $book=BookReader::find($id);
+        $book->id=$id;
+        $book->status=$status;
+        $book->save();
+        return redirect('/admin/reader_book');
     }
 }

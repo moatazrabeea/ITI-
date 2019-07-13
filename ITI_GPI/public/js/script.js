@@ -34,4 +34,28 @@ $(document).ready(function(){
         });
     });
 
+    /////////
+    var evaluation=0;
+    $(".star-image").click(function(e){
+        //$(this).attr('src',"http://localhost:2000/images/star_shines1.png");
+        //var id=$(this).attr('id');
+        $(this).toggleClass('selected');
+        if($(this).hasClass('selected')){
+            $(this).attr('src',"http://localhost:2000/images/star12.png");
+            evaluation+=1;
+        }else{
+            $(this).attr('src',"http://localhost:2000/images/star.png");
+            evaluation-=1;
+        }
+        //console.log(e.currentTarget);
+        //console.log(id);
+        $("#evaluation").val(evaluation);
+        //console.log(evaluation);
+    });
+
+    ///////////
+    $("#readerAddBook").click(function(e){
+        $(".book-reader form").toggle();
+    });
+
 });
