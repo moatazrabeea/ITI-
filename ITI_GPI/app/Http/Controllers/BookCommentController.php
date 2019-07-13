@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\Auth;
 
 class BookCommentController extends Controller
 {
+	public function index(){
+		
+	}
+	public function show($id){
+		
+	}
+	public function create(){
+		
+	}
+	public function edit(){
+		
+	}
     public function store(Request $request){
         $this->validate($request,[
             'content'=>'required',
@@ -33,7 +45,6 @@ class BookCommentController extends Controller
         $BookComment=BookComment::find($id);
         $BookComment->id=$id;
         $BookComment->content=$request->input("content");
-        //$comment->user_id=!Auth::guest()?Auth::user()->id:2;
         $BookComment->save();
         return redirect("/book/show/$BookComment->book_id");
     }
