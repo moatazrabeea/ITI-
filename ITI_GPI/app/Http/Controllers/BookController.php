@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\BookComment;
 use App\Category;
+use App\Rate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
@@ -58,6 +60,14 @@ class BookController extends Controller
          $cover->move(public_path('/upload_images/'),$book->cover);
          $uploaded_book->move(public_path('/upload_books/'),$book->book_link);
         $book->status=0;
+        if(Auth::user()->job_type=='publisher'){
+            $book->author_name=NULL;
+            $book->isbn=NULL;
+        }elseif (Auth::user()->job_type=='reader'){
+            $book->author_name=$request->input('author_name');
+            $book->isbn=$request->input('isbn');
+        }
+
        $book->save();
        return redirect('/book');
 
@@ -70,7 +80,10 @@ class BookController extends Controller
         $book=Book::find($id);
         $books=Book::all();
         $lastEight=Book::orderBy('id','DESC')->skip(0)->take(8)->get();
-        return view("Book.show")->with('book',$book)->with("books",$books)->with('lastEight',$lastEight);
+        $rates=Rate::where('book_id',$id)->get();
+        $bookComments=BookComment::where('book_id',$id)->get();
+        return view("Book.show")->with('book',$book)->with("books",$books)->
+        with('lastEight',$lastEight)->with("rates",$rates)->with('bookComments',$bookComments);
     }
 
 
@@ -143,4 +156,5 @@ class BookController extends Controller
         $path=public_path("/upload_books/$book->book_link");
         return response()->file($path);
     }
+
 }
