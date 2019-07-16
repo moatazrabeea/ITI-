@@ -18,8 +18,8 @@
            @else
            @endif
 
-
-        <form action="/book/add" method="post"enctype="multipart/form-data">
+           
+        <form  action="/book/add" method="post"enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             {!! csrf_field() !!}
             <div class='form-group'>

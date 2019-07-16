@@ -5,6 +5,9 @@ $(document).ready(function(){
    $(".showing-comment-owner").dblclick(function(e){
        $(this).removeAttr('readonly');
    });
+   $("#homePage").click(function(e){
+       $(this).setAttribute("class","current_page");
+   });
     $(".showing-comment-owner,.showing-comment-user").focus(function(e){
         $(this).css({
             "border":"1px solid #dbdbdb",

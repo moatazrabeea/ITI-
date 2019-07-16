@@ -26,11 +26,11 @@
 </head>
 <body id="app-layout">
 <div id="wrapper">
-    <div id="header">
+     <div id="header">
         <div class="h">
-            <div class="logo">
+           <div class="logo">
                 <div class="inner">
-                    <span>hellow</span>
+                    <span>hello</span>
                 </div>
             </div>
             <div class="section-user">
@@ -43,10 +43,10 @@
                 <nav>
 
                     @if (Auth::guest())
-                        <li class="list-inline-item  badge"><a href="{{ url('/login') }}">Login</a></li>
-                        <li class="list-inline-item badge"><a href="{{ url('/register') }}">Register</a></li>
+                        <li class="list-inline-item  badge"><a class="btn btn-primary" href="{{ url('/login') }}">Login</a></li>
+                        <li class="list-inline-item badge"><a class="btn btn-primary" href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <li class="list-inline-item badge"><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        <li class="list-inline-item badge"><a class="btn btn-danger" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                     @endif
                 </nav>
             </div>
@@ -56,8 +56,8 @@
         <div class="h n">
             <nav class="nav">
                 <ul class="list-unstyled list-inline">
-                    <li class="list-inline-item"><a href="{{url("/")}}"class="text-dark btn btn-light">welcome</a></li>
-                    <li class="list-inline-item"><a href="{{url("/home")}}"class="text-dark btn btn-light">home</a></li>
+                    <li  class="list-inline-item"><a id="welcomePage" href="{{url("/")}}"class="text-dark btn btn-light">welcome</a></li>
+                    <li class="list-inline-item"><a id="homePage" href="{{url("/home")}}"class="text-dark btn btn-light">home</a></li>
                 </ul>
             </nav>
 
@@ -82,9 +82,7 @@
             <div class="sections">
                 <h5>copy right</h5>
                 <ul>
-                    <li>mr fifty cent</li>
-                    <li>MG</li>
-                    <li>mahmoud gad</li>
+                   <li> ITI Graduaion Project </li>
                 </ul>
             </div>
             <div class="sections border-right-0">

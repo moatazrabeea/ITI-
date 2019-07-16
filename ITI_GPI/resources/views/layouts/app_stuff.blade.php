@@ -12,10 +12,10 @@
         <div class="h">
             <div class="logo">
                 <div class="inner">
-                    <span>hellow</span>
+                    <span>hello</span>
                 </div>
-            </div>
-            <div class="section-user">
+             </div>
+            <div class="section-user"> 
                 <h5 class="section-user-span">@if(Auth::guest())
                         {{"example@example.com"}}
                     @else
@@ -25,10 +25,10 @@
                 <nav>
 
                     @if (Auth::guest())
-                        <li class="list-inline-item  badge"><a href="{{ url('/login') }}">Login</a></li>
-                        <li class="list-inline-item badge"><a href="{{ url('/register') }}">Register</a></li>
+                        <li class="list-inline-item  badge" ><a  href="{{ url('/login') }}" class="btn btn-primary">Login</a></li>
+                        <li class="list-inline-item badge"><a href="{{ url('/register') }}"class="btn btn-primary">Register</a></li>
                     @else
-                        <li class="list-inline-item badge"><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        <li class="list-inline-item badge"><a href="{{ url('/logout') }}" class="btn btn-danger">Logout</a></li>
                     @endif
                 </nav>
             </div>
@@ -85,9 +85,7 @@
             <div class="sections">
                 <h5>copy right</h5>
                 <ul>
-                    <li>mr fifty cent</li>
-                    <li>MG</li>
-                    <li>mahmoud gad</li>
+                    <li>ITI GP</li>
                 </ul>
             </div>
             <div class="sections border-right-0">
